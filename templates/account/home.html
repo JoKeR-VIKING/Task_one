@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+    {% for message in messages %}
+        <div class="alert alert-warning">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h3 class="ms-3 mb-3">Home</h3>
+
+    <h5 class="ms-3 mb-3">Signup</h5>
+
+    <a class="btn btn-primary ms-3" href="{% url 'account:doctor_signup' %}">
+        Doctor
+    </a>
+
+    <a class="btn btn-primary ms-3" href="{% url 'account:paitent_signup' %}">
+        Paitent
+    </a>
+
+    <h5 class="ms-3 mb-3 mt-3">Signin</h5>
+
+    <a class="btn btn-primary ms-3" href="{% url 'account:doctor_signin' %}">
+        Doctor
+    </a>
+
+    <a class="btn btn-primary ms-3" href="{% url 'account:paitent_signin' %}">
+        Paitent
+    </a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+    <title>Paitent Signup</title>
+{% endblock %}
+
+{% block body %}
+    <body>
+        {% for message in messages %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h3 class="ms-3 mb-3">Paitent Signup</h3>
+
+        <form class="signup_form ms-3" action="{% url 'account:paitent_signup' %}" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input class="btn btn-primary" type="submit" value="Signup">
+        </form>
+    </body>
+{% endblock %}
